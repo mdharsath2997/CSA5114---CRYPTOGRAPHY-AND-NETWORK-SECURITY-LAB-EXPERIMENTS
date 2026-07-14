@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main(){
+    char text[100];
+    int a, b, i;
+    printf("Enter plaintext (UPPERCASE): ");
+    scanf("%s", text);
+    printf("Enter value of a: ");
+    scanf("%d", &a);
+    printf("Enter value of b: ");
+    scanf("%d", &b);
+    if(a!=1 && a!=3 && a!=5 && a!=7 && a!=9 && a!=11 && a!=15 && a!=17 && a!=19 && a!=21 && a!=23 && a!=25){
+        printf("Invalid value of a! It must be coprime with 26.\n");
+        return 0;
+    }
+    for(i = 0; text[i] != '\0'; i++){
+        if(text[i] >= 'A' && text[i] <= 'Z'){
+            int p = text[i] - 'A';
+            int c = (a * p + b) % 26;
+            text[i] = c + 'A';
+        }
+    }
+    printf("Encrypted Text: %s\n", text);
+    return 0;
+}
