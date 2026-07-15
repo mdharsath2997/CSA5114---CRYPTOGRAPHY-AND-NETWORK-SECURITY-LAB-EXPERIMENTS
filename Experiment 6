@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int p1 = 4;   // E
+    int c1 = 1;   // B
+    int p2 = 19;  // T
+    int c2 = 20;  // U
+
+    int a, b;
+
+    for(a = 1; a < 26; a++)
+    {
+        if((a % 2 != 0) && (a != 13))
+        {
+            b = (c1 - a * p1) % 26;
+
+            if(b < 0)
+                b += 26;
+
+            if(((a * p2 + b) % 26) == c2)
+            {
+                printf("Possible Key Found:\n");
+                printf("a = %d\n", a);
+                printf("b = %d\n", b);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
